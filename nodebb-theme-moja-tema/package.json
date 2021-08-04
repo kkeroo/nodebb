@@ -1,0 +1,71 @@
+{
+  "_from": "nodebb-theme-persona@11.1.0",
+  "_id": "nodebb-theme-persona@11.1.0",
+  "_inBundle": false,
+  "_integrity": "sha512-pKh/RA0UfHCepXz1yJ0fJZR/Mq2WEJE5ZMyGBwJf3XpYMe63LdCNaPma+ch6Cx0Ik9f7Hwe/+UMDSxoOEDio8g==",
+  "_location": "/nodebb-theme-persona",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "version",
+    "registry": true,
+    "raw": "nodebb-theme-persona@11.1.0",
+    "name": "nodebb-theme-persona",
+    "escapedName": "nodebb-theme-persona",
+    "rawSpec": "11.1.0",
+    "saveSpec": null,
+    "fetchSpec": "11.1.0"
+  },
+  "_requiredBy": [
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/nodebb-theme-persona/-/nodebb-theme-persona-11.1.0.tgz",
+  "_shasum": "a60d898bdd00242ac74b7d150dea6afd322ec943",
+  "_spec": "nodebb-theme-persona@11.1.0",
+  "_where": "C:\\Users\\JakobWin\\Desktop\\delo\\nodebb",
+  "bugs": {
+    "url": "https://github.com/psychobunny/nodebb-theme-persona/issues"
+  },
+  "bundleDependencies": false,
+  "contributors": [
+    {
+      "name": "Andrew Rodrigues",
+      "email": "andrew@designcreateplay.com",
+      "url": "https://github.com/psychobunny"
+    },
+    {
+      "name": "Julian Lam",
+      "email": "julian@designcreateplay.com",
+      "url": "https://github.com/julianlam"
+    },
+    {
+      "name": "Barış Soner Uşaklı",
+      "email": "baris@designcreateplay.com",
+      "url": "https://github.com/barisusakli"
+    }
+  ],
+  "dependencies": {
+    "pulling": "^2.0.0",
+    "striptags": "^3.2.0"
+  },
+  "deprecated": false,
+  "description": "Persona theme for NodeBB",
+  "homepage": "https://github.com/psychobunny/nodebb-theme-persona#readme",
+  "keywords": [
+    "nodebb",
+    "theme",
+    "forum",
+    "bootstrap",
+    "responsive"
+  ],
+  "license": "BSD-2-Clause",
+  "main": "library.js",
+  "name": "nodebb-theme-moja-tema",
+  "nbbpm": {
+    "compatibility": "^1.17.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/psychobunny/nodebb-theme-persona.git"
+  },
+  "version": "11.1.0"
+}
