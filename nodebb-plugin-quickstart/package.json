@@ -1,0 +1,75 @@
+{
+  "_from": "nodebb-plugin-quickstart@0.3.1",
+  "_id": "nodebb-plugin-quickstart@0.3.1",
+  "_inBundle": false,
+  "_integrity": "sha512-rFfLiP+glzbQ+5vtxs+52CtU1Jv39BX6WuBsr0nuCGeuQ4v7HBlqIjeOAInG8svkNycW9eK7dqhGWsfj1ZigjA==",
+  "_location": "/nodebb-plugin-quickstart",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "version",
+    "registry": true,
+    "raw": "nodebb-plugin-quickstart@0.3.1",
+    "name": "nodebb-plugin-quickstart",
+    "escapedName": "nodebb-plugin-quickstart",
+    "rawSpec": "0.3.1",
+    "saveSpec": null,
+    "fetchSpec": "0.3.1"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/nodebb-plugin-quickstart/-/nodebb-plugin-quickstart-0.3.1.tgz",
+  "_shasum": "2fb50df8147cf18588baf9a30cc6b9f5fc444fe6",
+  "_spec": "nodebb-plugin-quickstart@0.3.1",
+  "_where": "C:\\Users\\JakobWin\\Desktop\\delo\\nodebb",
+  "author": {
+    "name": "psychobunny",
+    "email": "psycho.bunny@hotmail.com"
+  },
+  "bugs": {
+    "url": "https://github.com/psychobunny/nodebb-plugin-quickstart/issues"
+  },
+  "bundleDependencies": false,
+  "deprecated": false,
+  "description": "A starter kit for quickly creating NodeBB plugins",
+  "devDependencies": {
+    "@commitlint/cli": "^8.0.0",
+    "@commitlint/config-angular": "^7.1.2",
+    "eslint": "^5.16.0",
+    "eslint-config-airbnb-base": "^12.1.0",
+    "eslint-plugin-import": "^2.8.0",
+    "husky": "^2.4.0",
+    "lint-staged": "^8.2.0"
+  },
+  "homepage": "https://github.com/psychobunny/nodebb-plugin-quickstart#readme",
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  },
+  "keywords": [
+    "nodebb",
+    "plugin",
+    "quickstart",
+    "shell"
+  ],
+  "license": "MIT",
+  "lint-staged": {
+    "*.js": [
+      "eslint --fix",
+      "git add"
+    ]
+  },
+  "main": "library.js",
+  "name": "nodebb-plugin-quickstart",
+  "nbbpm": {
+    "compatibility": "^1.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/psychobunny/nodebb-plugin-quickstart.git"
+  },
+  "version": "0.3.1"
+}
