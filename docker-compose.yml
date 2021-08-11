@@ -6,17 +6,20 @@ services:
     restart: unless-stopped
     depends_on:
       - db
-    expose:
-      - 4567 # use a reverse proxy like Traefik
+    #expose:
+      #- 4567 # use a reverse proxy like Traefik
+    ports:
+      - "127.0.0.1:4567:4567"
 
   db:
     image: mongo:bionic
     restart: unless-stopped
-    expose:
-      - 27017
+    ports: 
+      - "27017:27017"
     environment:
-      MONGO_INITDB_ROOT_USERNAME: root
-      MONGO_INITDB_ROOT_PASSWORD: root
+      MONGO_INITDB_DATABASE: admin
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: gesloadmin
     volumes:
       - mongo:/data/db
 
