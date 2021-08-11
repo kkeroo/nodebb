@@ -10,6 +10,8 @@ services:
       #- 4567 # use a reverse proxy like Traefik
     ports:
       - "127.0.0.1:4567:4567"
+    volumes: 
+      - ./:/node
 
   db:
     image: mongo:bionic
