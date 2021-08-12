@@ -13,17 +13,33 @@ services:
       - node_data:/usr/src/app
 
   db:
-    image: mongo:bionic
+    image: postgres
     restart: unless-stopped
     ports: 
-      - "27017:27017"
+      - "5432:5432"
     environment:
-      MONGO_INITDB_DATABASE: admin
-      MONGO_INITDB_ROOT_USERNAME: admin
-      MONGO_INITDB_ROOT_PASSWORD: gesloadmin
+      POSTGRES_PASSWORD: gesloadmin
+      POSTGRES_DB: nodebb
+      POSTGRES_USER: admin
+      PGDATA: /var/lib/postgres/data
     volumes:
-      - mongo:/data/db
+      - postgres:/var/lib/postgres/data/
+  
+  pgadmin:
+    image: dpage/pgadmin4
+    restart: unless-stopped
+    environment: 
+      PGADMIN_DEFAULT_EMAIL: jasa@kero.si
+      PGADMIN_DEFAULT_PASSWORD: gesloadmin
+      PGADMIN_LISTEN_PORT: 80
+    ports: 
+      - "8080:80"
+    volumes:
+      - pgadmin_data:/var/lib/pgadmin
+    links: 
+      - "db:pgsql-server"
 
 volumes:
-  mongo:
+  postgres:
   node_data:
+  pgadmin_data:
