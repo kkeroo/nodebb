@@ -17,11 +17,16 @@ Da lahko uredimo datoteko potrebujemo urejevalnik besedila. Eden izmed najboljš
 
 ### Inštalacija pluginov in tem
 #### Ročno napisani plugini in teme
-Potrebno je ustvariti simbolno povezavo. To se stori tako, da odpremo ukazno lupino storitve **nodebb_node_1** na isti način kot smo storili prej. potem se prestavimo v mapo, kjer je naš plugin in poženemo **npm link**, nato se prestavimo v mapo, kjer je inštaliran NodeBB in poženemo **npm link ime-plugina**.
+Potrebno je ustvariti simbolno povezavo. Ker če povezave ustvarimo ročno se ob zaustavitvi kontejnerja izgubijo, jih definiramo v **docker-compose.yml** datoteki. Pod servicom **node** se kliče **command**, kjer je potrebno za vsak plugin dodati 4 ukaze, kot je prikazano za plugin quickstart.
+Pomembno je da so ukazi v pravilnem vrstem redu:
+1. se prestavimo v mapo z pluginom (ukaz cd)
+2. poženemo **npm link**
+3. se prestavimo v mapo, kjer je inštaliran NodeBB
+4. poženemo ukaz **npm link <ime-plugina>**
 
 #### Javno dostopni plugini   
-inštaliramo jih na enak princip, prek ACP.
+Inštaliramo jih na prek ACP.
 
-#### Back-up baze
+### Back-up baze
 1. za back-up se postavimo v mapo, kjer želimo shraniti back-up in poženemo **mongodump --authenticationDatabase=admin --username=admin --password=gesloadmin --host=localhost --port=27017**
 2. za restore baze poženemo **mongorestore --authenticationDatabase=admin --username=admin --password=gesloadmin --host=localhost --port=27017 .** v mapi, kjer se nahaja back-up.
