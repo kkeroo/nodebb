@@ -22,8 +22,8 @@ V docker-compose datoteki, lahko spremenimo okoljske spremenljivke, ki se uporab
 ### Urejanje datoteke v ukazni lupini storitve db
 Da lahko uredimo datoteko potrebujemo urejevalnik besedila. Eden izmed najboljših opcij je **nano**. Dobimo ga z dvema ukazoma **apt-get update** in **apt-get install nano**.
 
-### Inštalacija pluginov in tem
-#### Ročno napisani plugini in teme
+## Inštalacija pluginov in tem
+### Ročno napisani plugini in teme
 Potrebno je ustvariti simbolno povezavo. Ker če povezave ustvarimo ročno se ob zaustavitvi kontejnerja izgubijo, jih definiramo v **docker-compose.yml** datoteki. Pod servicom **node** se kliče **command**, kjer je potrebno za vsak plugin dodati 4 ukaze, kot je prikazano za plugin quickstart.
 Pomembno je da so ukazi v pravilnem vrstem redu:
 1. se prestavimo v mapo z pluginom (ukaz cd)
@@ -31,14 +31,14 @@ Pomembno je da so ukazi v pravilnem vrstem redu:
 3. se prestavimo v mapo, kjer je inštaliran NodeBB
 4. poženemo ukaz **npm link <ime-plugina>**
 
-#### Javno dostopni plugini   
+### Javno dostopni plugini   
 Inštaliramo jih prek ACP.
 
-### Back-up baze
-#### MongoDB
+## Back-up baze
+### MongoDB
 1. za back-up se postavimo v mapo, kjer želimo shraniti back-up in poženemo **mongodump --authenticationDatabase=admin --username=admin --password=gesloadmin --host=localhost --port=27017**
 2. za restore baze poženemo **mongorestore --authenticationDatabase=admin --username=admin --password=gesloadmin --host=localhost --port=27017 .** v mapi, kjer se nahaja back-up.
-#### PostgreSQL
+### PostgreSQL
 1. za back-up se postavimo v mapo, kjer želimo shraniti back-up in poženemo **docker exec -t nodebb_db_1 pg_dump nodebb -U admin > dump.sql**.
 2. za restore baze poženemo **cat dump.sql | docker exec -i nodebb_db_1 -U admin -d nodebb**.
 V tem primeru je **nodebb** ime baze, ki jo backup-amo, **admin** je ime uporabnika, ki skrbi za bazo, **nodebb_db_1** je ime storitve, kjer teče baza v Dockerju, **dump.sql** je ime datoteke, v katero se je shranil back-up.
