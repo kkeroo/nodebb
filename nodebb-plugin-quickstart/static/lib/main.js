@@ -35,6 +35,10 @@ function poslji() {
 			console.log("data");
 		}
 	});
+
+	komentar_textarea.value = "";
+	da_radio.checked = false;
+	ne_radio.checked = false;
 }
 
 $(document).ready(function () {

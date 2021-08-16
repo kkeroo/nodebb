@@ -1,23 +1,51 @@
 'use strict';
 
 const controllers = require('./lib/controllers');
-var MongoClient = require('mongodb').MongoClient;
-var url = "mongodb://admin:gesloadmin@db:27017/";
 
 const plugin = {};
 
 function odzivi(req, res) {
 	console.log(req.body);
 	//objekt, ki ga vstavimo v bazo je shranjen v req.body
-	MongoClient.connect(url, function(err, db){
+	var pool = new Pool({
+		host: "db",
+		port: "5432",
+		user: "admin",
+		password: "gesloadmin",
+		database: "nodebb"
+	});
+
+	pool.connect((err, client, done) => {
 		if (err) throw err;
-		var dbo = db.db("nodebb");
-		dbo.collection("odzivi").insertOne(req.body, function(err, res){
-			if (err) throw err;
-			db.close();
-			console.log("vstavjeno");
+		client.query("CREATE TABLE IF NOT EXISTS odzivi (id SERIAL PRIMARY KEY, naslov VARCHAR(100), odziv VARCHAR(5), komentar VARCHAR(100))", (err, res) => {
+			done();
+			if (err) console.log(err.stack);
 		});
 	});
+	//pool.query("CREATE TABLE IF NOT EXISTS odzivi (id SERIAL PRIMARY KEY, naslov VARCHAR(100), odziv VARCHAR(5), komentar VARCHAR(100))", (err, res) => {
+	//	console.log(err, res);
+	//});
+
+	const poizvedba = "INSERT INTO odzivi(naslov, odziv, komentar) VALUES('" + req.body.naslov + "', '" + req.body.odziv + "', '" + req.body.komentar + "')";
+	//const vrednosti = [req.body.naslov, req.body.odziv, req.body.komentar];
+
+	pool.connect((err, client, done) => {
+		if (err) throw err;
+		client.query(poizvedba, (err, res) => {
+			done();
+			if (err) throw err;
+			else console.log(res);
+		});
+	});
+
+	/*
+	pool.query(poizvedba, (err, res) => {
+		if (err) console.log(err);
+		else console.log(res.row[0]);
+	});
+
+	pool.end();
+*/
 	res.redirect("back");
 }
 

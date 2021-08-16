@@ -13,6 +13,10 @@ RUN npm install --only=prod && \
     
 COPY . /usr/src/app
 
+RUN mkdir /usr/src/nodebb-plugin-quickstart
+
+COPY ./nodebb-plugin-quickstart /usr/src/nodebb-plugin-quickstart
+
 ENV NODE_ENV=production \
     daemon=false \
     silent=false

@@ -3,7 +3,7 @@ version: '3.5'
 services:
   node:
     build: .
-    command: bash -c "cd nodebb-plugin-quickstart/ && npm link && cd .. && npm link nodebb-plugin-quickstart && node ./nodebb build && node ./nodebb start"
+    command: bash -c "cd ../nodebb-plugin-quickstart && npm install pg && npm link && cd ../app && npm link nodebb-plugin-quickstart && node ./nodebb build && node ./nodebb start"
     restart: unless-stopped
     depends_on:
       - db
